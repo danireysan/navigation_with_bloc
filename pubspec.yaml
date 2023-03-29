@@ -9,7 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  equatable: ^2.0.5
+  flutter_bloc: ^8.1.2
+  modal_bottom_sheet: ^3.0.0-pre
 dev_dependencies:
   flutter_test:
     sdk: flutter

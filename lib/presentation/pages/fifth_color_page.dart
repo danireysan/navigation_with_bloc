@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FifthColorPage extends StatelessWidget {
-  static const routeName = '/fourth-color';
+  static const routeName = '/fifth-color';
   const FifthColorPage({super.key});
 
   @override
