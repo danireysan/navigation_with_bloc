@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:navigation_with_bloc/presentation/pages/colors_option_page.dart';
 import 'package:navigation_with_bloc/presentation/pages/fifth_color_page.dart';
 import 'package:navigation_with_bloc/presentation/pages/first_color.dart_page.dart';
 

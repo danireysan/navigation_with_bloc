@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:navigation_with_bloc/option_navigation_model.dart';
 import 'package:navigation_with_bloc/presentation/bloc/navigation_option_bloc.dart';
-import 'package:navigation_with_bloc/presentation/pages/first_color.dart_page.dart';
 
 class ColorsOptionPage extends StatelessWidget {
   static const routeName = '/colors-option';
@@ -14,64 +14,67 @@ class ColorsOptionPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(50),
         child: BlocBuilder<NavigationOptionBloc, NavigationOptionState>(
-          builder: (context, state) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      'Colors Options: ${state.optionNavigationModel.option}',
-                      style: const TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
+            builder: (context, state) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: Center(
+                  child: Text(
+                    'Colors Options: ${state.optionNavigationModel.option}',
+                    style: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () => _fiveColorOption(context),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: const BorderSide(
-                        color: Colors.transparent,
-                      ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  context.read<NavigationOptionBloc>().add(
+                        const SelectOptionEvent(
+                          optionNavigationModel:
+                              OptionNavigationModel.fiveColorOption,
+                        ),
+                      );
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    side: const BorderSide(
+                      color: Colors.transparent,
                     ),
-                    backgroundColor: const Color.fromRGBO(167, 199, 231, 1),
                   ),
-                  child: const Text('5 colors'),
+                  backgroundColor: const Color.fromRGBO(167, 199, 231, 1),
                 ),
-                ElevatedButton(
-                  onPressed: () => _threeColorOption(context),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: const BorderSide(
-                        color: Colors.transparent,
-                      ),
+                child: const Text('5 colors'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  context.read<NavigationOptionBloc>().add(
+                        const SelectOptionEvent(
+                          optionNavigationModel:
+                              OptionNavigationModel.fiveColorOption,
+                        ),
+                      );
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    side: const BorderSide(
+                      color: Colors.transparent,
                     ),
-                    backgroundColor: const Color.fromRGBO(167, 199, 231, 1),
                   ),
-                  child: const Text('3 colors'),
+                  backgroundColor: const Color.fromRGBO(167, 199, 231, 1),
                 ),
-                const Spacer()
-              ],
-            );
-          },
-        ),
+                child: const Text('3 colors'),
+              ),
+              const Spacer()
+            ],
+          );
+        }),
       ),
     );
-  }
-
-  void _fiveColorOption(BuildContext context) {
-    Navigator.pushNamed(context, FirstColorPage.routeName);
-    context.read<NavigationOptionBloc>().add(const OptionFiveColorsEvent());
-  }
-
-  void _threeColorOption(BuildContext context) {
-    Navigator.pushNamed(context, FirstColorPage.routeName);
-    context.read<NavigationOptionBloc>().add(const OptionThreeColorsEvent());
   }
 }

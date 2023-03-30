@@ -7,19 +7,11 @@ abstract class NavigationOptionEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class OptionFiveColorsEvent extends NavigationOptionEvent {
-  final OptionNavigationModel optionNavigationModel =
-      OptionNavigationModel.fiveColorOption;
-  const OptionFiveColorsEvent();
-
-  @override
-  List<Object> get props => [optionNavigationModel];
-}
-
-class OptionThreeColorsEvent extends NavigationOptionEvent {
-  final OptionNavigationModel optionNavigationModel =
-      OptionNavigationModel.threeColorOption;
-  const OptionThreeColorsEvent();
+class SelectOptionEvent extends NavigationOptionEvent {
+  final OptionNavigationModel optionNavigationModel;
+  const SelectOptionEvent({
+    required this.optionNavigationModel,
+  });
 
   @override
   List<Object> get props => [optionNavigationModel];

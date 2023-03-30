@@ -8,41 +8,15 @@ part 'navigation_option_state.dart';
 class NavigationOptionBloc
     extends Bloc<NavigationOptionEvent, NavigationOptionState> {
   NavigationOptionBloc() : super(const NavigationOptionInitial()) {
-    on<OptionFiveColorsEvent>((event, emit) {
-      emit(
-        const OptionSelectedState(
-          listIndex: 1,
-          newNavigationOption: OptionNavigationModel.fiveColorOption,
-        ),
-      );
-    });
-    on<OptionThreeColorsEvent>((event, emit) {
-      emit(
-        const OptionSelectedState(
-          listIndex: 1,
-          newNavigationOption: OptionNavigationModel.threeColorOption,
-        ),
-      );
-    });
-    on<NavigateNextRoute>((event, emit) {
-      if (state.listIndex < 1) {
+    on<SelectOptionEvent>(
+      (event, emit) {
         emit(
-          NavigateToNextRoute(
-            increasedValue: state.listIndex + 1,
-            newNavigationOption: state.optionNavigationModel,
+          OptionSelectedState(
+            listIndex: 1,
+            newNavigationOption: event.optionNavigationModel,
           ),
         );
-      }
-    });
-    on<NavigatePreviousRoute>((event, emit) {
-      if (state.listIndex > 0) {
-        emit(
-          NavigateToPreviousRoute(
-            decreasedValue: state.listIndex - 1,
-            newNavigationOption: state.optionNavigationModel,
-          ),
-        );
-      }
-    });
+      },
+    );
   }
 }
