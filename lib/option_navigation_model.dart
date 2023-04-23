@@ -18,7 +18,7 @@ class OptionNavigationModel extends Equatable {
   });
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [option, routesList];
 
   static const fiveColorOption = OptionNavigationModel(
     option: NavigationOption.fiveColors,
