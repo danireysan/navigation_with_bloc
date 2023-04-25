@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:navigation_with_bloc/option_navigation_model.dart';
 
 class ColorsOptionPage extends StatelessWidget {
   static const routeName = '/colors-option';
