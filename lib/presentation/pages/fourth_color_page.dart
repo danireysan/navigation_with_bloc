@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/scaffold_body_widget.dart';
+
 class FourthColorPage extends StatelessWidget {
   static const routeName = '/fourth-color';
   const FourthColorPage({super.key});
@@ -11,14 +13,7 @@ class FourthColorPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Fourth Color'),
       ),
-      body: Column(
-        children: const [
-          Text('The page number is: '),
-          Center(
-            child: Text('Fourth Color'),
-          ),
-        ],
-      ),
+      body: const ScaffoldBodyWidget(title: 'Fourth Color'),
     );
   }
 }

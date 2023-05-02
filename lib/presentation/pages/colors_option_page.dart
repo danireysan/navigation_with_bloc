@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:navigation_with_bloc/option_navigation_model.dart';
 import 'package:navigation_with_bloc/presentation/bloc/navigation_bloc.dart';
+import 'package:navigation_with_bloc/presentation/pages/first_color.dart_page.dart';
 
 class ColorsOptionPage extends StatelessWidget {
   static const routeName = '/colors-option';
@@ -34,6 +35,7 @@ class ColorsOptionPage extends StatelessWidget {
                     onPressed: () {
                       context.read<NavigationBloc>().add(
                           const PickOptionEvent(NavigationOption.fiveColors));
+                      Navigator.pushNamed(context, FirstColorPage.routeName);
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
@@ -50,6 +52,7 @@ class ColorsOptionPage extends StatelessWidget {
                     onPressed: () {
                       context.read<NavigationBloc>().add(
                           const PickOptionEvent(NavigationOption.threeColors));
+                      Navigator.pushNamed(context, FirstColorPage.routeName);
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(

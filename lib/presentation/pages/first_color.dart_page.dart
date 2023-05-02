@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/scaffold_body_widget.dart';
+
 class FirstColorPage extends StatelessWidget {
   static const routeName = '/first-color';
   const FirstColorPage({super.key});
@@ -11,22 +13,7 @@ class FirstColorPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('First Color'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'The page number : ',
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          Center(
-            child: Text(
-              'First Color',
-              style: Theme.of(context).textTheme.displayLarge,
-            ),
-          ),
-        ],
-      ),
+      body: const ScaffoldBodyWidget(title: 'First Color'),
     );
   }
 }
